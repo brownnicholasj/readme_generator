@@ -15,9 +15,30 @@ const readmeQuestions = () => {
 		{
 			type: 'confirm',
 			message:
-				'Do you have licenses? (if Y, you will provide addition info later',
+				'Do you have licenses? (if "yes", you will provide addition info later',
 			name: 'licenseConfirm',
 		},
+		// ])
+		// .then((answers) => {
+		// 	if (answers.licenseConfirm === true) {
+		// 		inquirer.prompt([
+		// 			{
+		// 				type: 'number',
+		// 				message: 'How many licenses do you want to list?',
+		// 				name: 'licenseNum',
+		// 			},
+		// 		]);
+		// 		for (let i = 0; i < answers.licenseNum; i++) {
+		// 			inquirer.prompt([
+		// 				{
+		// 					type: 'input',
+		// 					message: 'input message here',
+		// 					name: `license${i}`,
+		// 				},
+		// 			]);
+		// 		}
+		// 	}
+		// })
 		{
 			type: 'input',
 			message: `Description will have 3 sections \n1 what does your app do\n2 what technologies used\n3 some challenges you faced and future features\n\nWhat does your application do?`,

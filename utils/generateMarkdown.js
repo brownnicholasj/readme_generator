@@ -1,4 +1,33 @@
+const inquirer = require('inquirer');
+
 // TODO: Create a function that returns a license badge based on which license is passed in
+const collectLicense = async (inputs = []) => {
+	const licenseQuestions = [
+		{
+			type: 'input',
+			message: 'What is the license name?',
+			name: 'licenseName',
+		},
+		{
+			type: 'input',
+			message: 'What is the license link?',
+			name: 'licenseLink',
+		},
+		{
+			type: 'confirm',
+			message: 'Add another license?',
+			name: 'addLicense',
+			default: false,
+		},
+	];
+
+	const { addLicense, ...answers } = await inquirer.prompt(licenseQuestions);
+	const newLicenses = [...inputs, answers];
+	return addLicense
+		? collectLicense(newLicenses)
+		: console.log(newLicenses, 'false');
+};
+
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 	console.log(`look what was passed ${license}`);
@@ -15,7 +44,7 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
 	if (answers.licenseConfirm === true) {
-		renderLicenseBadge();
+		collectLicense();
 	}
 	return `# ${answers.title} 
   
