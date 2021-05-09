@@ -1,20 +1,21 @@
 {
-  "name": "readme generator",
+  "name": "readme_generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "nicholas brown",
-  "license": "ISC",
   "dependencies": {
     "inquirer": "^6.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brownnicholasj/readme_generator.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/brownnicholasj/readme_generator/issues"
   },

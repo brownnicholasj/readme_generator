@@ -1,43 +1,51 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const util = require('util');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = [
-	{
-		type: 'input',
-		message: 'What is your README Title?',
-		name: 'name',
-	},
-	{
-		type: 'password',
-		message: 'What is your password?',
-		name: 'password',
-	},
-	{
-		type: 'password',
-		message: 'Re-enter password to confirm:',
-		name: 'confirm',
-	},
-];
+const readmeQuestions = () => {
+	return inquirer.prompt([
+		{
+			type: 'input',
+			message: 'What is your README Title?',
+			name: 'title',
+		},
+		{
+			type: 'confirm',
+			message:
+				'Do you have licenses? (if Y, you will provide addition info later',
+			name: 'licenseConfirm',
+		},
+		{
+			type: 'input',
+			message: `Description will have 3 sections \n1 what does your app do\n2 what technologies used\n3 some challenges you faced and future features\n\nWhat does your application do?`,
+			name: 'desc1',
+		},
+		{
+			type: 'input',
+			message: 'What technologies were used?',
+			name: 'desc2',
+		},
+		{
+			type: `input`,
+			message: `Some of the challenges you faced and features you hope to implement in the future.`,
+			name: `desc3`,
+		},
+	]);
+};
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-	fs.writeFile(fileName, data, (err) => {
-		err ? console.error(err) : console.log('Success!');
-	});
-}
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // TODO: Create a function to initialize app
-function init() {
-	inquirer.prompt([questions[0], questions[1], questions[2]]).then((data) => {
-		const filename = `README.md`;
-
-		fs.writeFile(filename, `# ${data.name}`, (err) => {
-			err ? console.log(err) : console.log('Success!');
-		});
-	});
-}
+const init = () => {
+	readmeQuestions()
+		.then((answers) => writeFileAsync('README.md', generateMarkdown(answers)))
+		.then(() => console.log('Successfully wrote to README.md'))
+		.catch((err) => console.error(err));
+};
 
 // Function call to initialize app
 init();
