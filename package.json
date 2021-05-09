@@ -1,7 +1,7 @@
 {
   "name": "readme_generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)",
   "main": "index.js",
   "dependencies": {
     "inquirer": "^6.5.2"
@@ -14,8 +14,8 @@
     "type": "git",
     "url": "git+https://github.com/brownnicholasj/readme_generator.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Nicholas Brown",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brownnicholasj/readme_generator/issues"
   },

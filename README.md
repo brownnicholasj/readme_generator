@@ -1,6 +1,6 @@
-# testtitle2 
-  
-  ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+# readme gen
+
+  ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
 
   ## Description
 
@@ -33,8 +33,7 @@
   This is just a sample. Nothing works. Nothing exists. There is no cake.
 
   ## License
-
-  This project is licensed under the MIT license.
+This project is licensed under the MIT license.
 
   ## Contributing
 
