@@ -1,11 +1,4 @@
 const licensepkg = require('../package.json');
-const generateDescription = require('./generateDescription');
-const generateTOC = require('./generateTOC');
-const generateInstall = require('./generateInstall');
-const generateUsage = require('./generateUsage');
-const generateContributors = require('./generateContributors');
-const generateTest = require('./generateTest');
-const generateQuest = require('./generateQuest');
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -35,6 +28,15 @@ function renderLicenseSection(license, toc) {
 	}
 }
 
+const descSection = (boolean, desc1, desc2, desc3) => {
+	return boolean
+		? `## Description
+  * ${desc1}
+  * ${desc2}
+  * ${desc3}`
+		: ``;
+};
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
 	return `# ${answers.title}
@@ -43,12 +45,13 @@ function generateMarkdown(answers) {
 		licensepkg.license
 	)}
 
-  ${generateDescription(answers.descConfirm)}
-  ## Description
+  ${descSection(
+		answers.descConfirm,
+		answers.desc1,
+		answers.desc2,
+		answers.desc3
+	)}
 
-  Sample Project
-
-  ${generateTOC(answers)}
   ## Table of Contents
 
   * [Installation](#installation)
@@ -63,7 +66,7 @@ function generateMarkdown(answers) {
 
   * [Questions](#questions)
 
-  ${generateInstall(answers.installConfirm)}
+
   ## Installation
 
   To install necessary dependencies, run the following command:
@@ -72,20 +75,18 @@ function generateMarkdown(answers) {
   npm i
   '''
 
-  ${generateUsage(answers.usageConfirm)}
+
   ## Usage
 
   This is just a sample. Nothing works. Nothing exists. There is no cake.
 
   ${renderLicenseSection(licensepkg.license, false)}
 
-  ${generateContributors(answers.contConfirm)}
   ## Contributing
 
   Feel free to send me money.
 
-  ${generateTest(answers.testConfirm)}
-  ## Tests
+   ## Tests
 
   To run tests, run the following command:
 
@@ -93,8 +94,7 @@ function generateMarkdown(answers) {
   npm test
   '''
 
-  ${generateQuest(answers.questConfirm)}
-  ## Questions
+   ## Questions
 
   If you have any questions about the repo, open an issue or contact me directly at myemail@gmail.com. You can find more of my work at [mygit](https://github.com/mygit/).
 

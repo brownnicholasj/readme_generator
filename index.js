@@ -20,6 +20,24 @@ const readmeQuestions = () => {
 			default: true,
 		},
 		{
+			type: 'input',
+			message: `What does your application do?`,
+			name: 'desc1',
+			when: (answers) => answers.descConfirm === true,
+		},
+		{
+			type: 'input',
+			message: 'What technologies were used?',
+			name: 'desc2',
+			when: (answers) => answers.descConfirm === true,
+		},
+		{
+			type: `input`,
+			message: `Some of the challenges you faced and features you hope to implement in the future.`,
+			name: `desc3`,
+			when: (answers) => answers.descConfirm === true,
+		},
+		{
 			type: 'confirm',
 			message:
 				'Do you want a "Table of Contents" section that links your README to those sections?',
