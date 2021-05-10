@@ -1,4 +1,11 @@
 const licensepkg = require('../package.json');
+const generateDescription = require('./generateDescription');
+const generateTOC = require('./generateTOC');
+const generateInstall = require('./generateInstall');
+const generateUsage = require('./generateUsage');
+const generateContributors = require('./generateContributors');
+const generateTest = require('./generateTest');
+const generateQuest = require('./generateQuest');
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -36,10 +43,12 @@ function generateMarkdown(answers) {
 		licensepkg.license
 	)}
 
+  ${generateDescription(answers.descConfirm)}
   ## Description
 
   Sample Project
 
+  ${generateTOC(answers)}
   ## Table of Contents
 
   * [Installation](#installation)
@@ -54,6 +63,7 @@ function generateMarkdown(answers) {
 
   * [Questions](#questions)
 
+  ${generateInstall(answers.installConfirm)}
   ## Installation
 
   To install necessary dependencies, run the following command:
@@ -62,16 +72,19 @@ function generateMarkdown(answers) {
   npm i
   '''
 
+  ${generateUsage(answers.usageConfirm)}
   ## Usage
 
   This is just a sample. Nothing works. Nothing exists. There is no cake.
 
   ${renderLicenseSection(licensepkg.license, false)}
 
+  ${generateContributors(answers.contConfirm)}
   ## Contributing
 
   Feel free to send me money.
 
+  ${generateTest(answers.testConfirm)}
   ## Tests
 
   To run tests, run the following command:
@@ -80,6 +93,7 @@ function generateMarkdown(answers) {
   npm test
   '''
 
+  ${generateQuest(answers.questConfirm)}
   ## Questions
 
   If you have any questions about the repo, open an issue or contact me directly at myemail@gmail.com. You can find more of my work at [mygit](https://github.com/mygit/).

@@ -13,19 +13,53 @@ const readmeQuestions = () => {
 			name: 'title',
 		},
 		{
-			type: 'input',
-			message: `Description will have 3 sections \n1 what does your app do\n2 what technologies used\n3 some challenges you faced and future features\n\nWhat does your application do?`,
-			name: 'desc1',
+			type: 'confirm',
+			message:
+				'Do you want a "Description" section that describes your application?',
+			name: 'descConfirm',
+			default: true,
 		},
 		{
-			type: 'input',
-			message: 'What technologies were used?',
-			name: 'desc2',
+			type: 'confirm',
+			message:
+				'Do you want a "Table of Contents" section that links your README to those sections?',
+			name: 'tocConfirm',
+			default: true,
 		},
 		{
-			type: `input`,
-			message: `Some of the challenges you faced and features you hope to implement in the future.`,
-			name: `desc3`,
+			type: 'confirm',
+			message:
+				'Do you want an "Installation" section to give directions on how to install?',
+			name: 'installConfirm',
+			default: true,
+		},
+		{
+			type: 'confirm',
+			message:
+				'Do you want an "Usage" section to describe practical way to utilize your app?',
+			name: 'usageConfirm',
+			default: true,
+		},
+		{
+			type: 'confirm',
+			message:
+				'Do you want a "Contributors" section to highlight others who have help with the development?',
+			name: 'contConfirm',
+			default: true,
+		},
+		{
+			type: 'confirm',
+			message:
+				'Do you want a "Test" section to give users practical test cases?',
+			name: 'testConfirm',
+			default: true,
+		},
+		{
+			type: 'confirm',
+			message:
+				'Do you want a "Questions" section to give users contact methods to ask questions?',
+			name: 'questConfirm',
+			default: true,
 		},
 	]);
 };
