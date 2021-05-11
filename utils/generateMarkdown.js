@@ -81,13 +81,74 @@ The following dependencies will be installed:
 		: ``;
 };
 
+const usageSection = (boolean, text) => {
+	return boolean
+		? `## Usage
+${text}`
+		: ``;
+};
+
+const contributeSection = (boolean, list) => {
+	return boolean
+		? `## Contributing
+A thanks to the following contributors to this project: ${list}`
+		: ``;
+};
+
+const testSection = (boolean, choice, one, two, three, four, five) => {
+	let test = '';
+	if (boolean === true) {
+		test += '## Test\n';
+		if (choice === 'type test cases here') {
+			if (one !== undefined) {
+				test += `* ${one}\n`;
+			}
+			if (two !== undefined) {
+				test += `* ${two}\n`;
+			}
+			if (three !== undefined) {
+				test += `* ${three}\n`;
+			}
+			if (four !== undefined) {
+				test += `* ${four}\n`;
+			}
+			if (five !== undefined) {
+				test += `* ${five}`;
+			}
+		} else {
+			test += `\n
+      To run tests, run the following command:
+      ~~~
+      npm test
+      ~~~`;
+		}
+	}
+	return test;
+};
+
+const questSection = (boolean, email, git) => {
+	let quest = '';
+	if (boolean === true) {
+		quest += '## Questions\n';
+		if (email !== undefined || email !== '') {
+			quest += `If you have any questions about the repo, open an issue or contact me directly at ${email}.`;
+		}
+		if (git !== undefined || email !== '') {
+			quest += `You can find more of my work at [${git}](https://github.com/${git}/).`;
+		}
+	}
+	return quest;
+};
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
 	return `# ${answers.title}
 
+
   ${renderLicenseBadge(licensepkg.license)}${renderLicenseLink(
 		licensepkg.license
 	)}
+
 
   ${descSection(
 		answers.descConfirm,
@@ -95,6 +156,7 @@ function generateMarkdown(answers) {
 		answers.desc2,
 		answers.desc3
 	)}
+
 
   ${tocSection(
 		answers.tocConfirm,
@@ -106,31 +168,31 @@ function generateMarkdown(answers) {
 		answers.questConfirm
 	)}
   
+
   ${installSection(answers.installConfirm)}
 
 
-  ## Usage
+  ${usageSection(answers.usageConfirm, answers.usageText)}
 
-  This is just a sample. Nothing works. Nothing exists. There is no cake.
 
   ${renderLicenseSection(licensepkg.license, false)}
 
-  ## Contributing
 
-  Feel free to send me money.
+  ${contributeSection(answers.contConfirm, answers.contList)}
 
-   ## Tests
 
-  To run tests, run the following command:
+  ${testSection(
+		answers.testConfirm,
+		answers.testChoice,
+		answers.test1,
+		answers.test2,
+		answers.test3,
+		answers.test4,
+		answers.test5
+	)}
+  
 
-  '''
-  npm test
-  '''
-
-   ## Questions
-
-  If you have any questions about the repo, open an issue or contact me directly at myemail@gmail.com. You can find more of my work at [mygit](https://github.com/mygit/).
-
+  ${questSection(answers.questConfirm, answers.questEmail, answers.questGit)}
   `;
 }
 

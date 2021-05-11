@@ -59,11 +59,23 @@ const readmeQuestions = () => {
 			default: true,
 		},
 		{
+			type: 'input',
+			message: 'Give use case example for your application.',
+			name: 'usageText',
+			when: (answers) => answers.usageConfirm === true,
+		},
+		{
 			type: 'confirm',
 			message:
 				'Do you want a "Contributors" section to highlight others who have help with the development?',
 			name: 'contConfirm',
 			default: true,
+		},
+		{
+			type: 'input',
+			message: 'List the contributors to your application.',
+			name: 'contList',
+			when: (answers) => answers.contConfirm === true,
 		},
 		{
 			type: 'confirm',
@@ -73,11 +85,84 @@ const readmeQuestions = () => {
 			default: true,
 		},
 		{
+			type: 'list',
+			message: 'What type of test case do you have?',
+			choices: ['npm test file', 'type test cases here'],
+			name: 'testChoice',
+			when: (answers) => answers.testConfirm === true,
+		},
+		{
+			type: 'input',
+			message: 'Explain test case 1 (max 5)',
+			name: 'test1',
+			when: (answers) => answers.testChoice === 'type test cases here',
+		},
+		{
+			type: 'confirm',
+			message: 'Another test case?',
+			name: 'test2Confirm',
+			when: (answers) => answers.testChoice === 'type test cases here',
+		},
+		{
+			type: 'input',
+			message: 'Explain test case 2 (max 5)',
+			name: 'test2',
+			when: (answers) => answers.test2Confirm === true,
+		},
+		{
+			type: 'confirm',
+			message: 'Another test case?',
+			name: 'test3Confirm',
+			when: (answers) => answers.test2Confirm === true,
+		},
+		{
+			type: 'input',
+			message: 'Explain test case 3 (max 5)',
+			name: 'test3',
+			when: (answers) => answers.test3Confirm === true,
+		},
+		{
+			type: 'confirm',
+			message: 'Another test case?',
+			name: 'test4Confirm',
+			when: (answers) => answers.test3Confirm === true,
+		},
+		{
+			type: 'input',
+			message: 'Explain test case 4 (max 5)',
+			name: 'test4',
+			when: (answers) => answers.test4Confirm === true,
+		},
+		{
+			type: 'confirm',
+			message: 'Another test case?',
+			name: 'test5Confirm',
+			when: (answers) => answers.test4Confirm === true,
+		},
+		{
+			type: 'input',
+			message: 'Explain test case 5 (final test case)',
+			name: 'test5',
+			when: (answers) => answers.test5Confirm === true,
+		},
+		{
 			type: 'confirm',
 			message:
 				'Do you want a "Questions" section to give users contact methods to ask questions?',
 			name: 'questConfirm',
 			default: true,
+		},
+		{
+			type: 'input',
+			message: 'What is the email you would like to use for contacting you?',
+			name: 'questEmail',
+			when: (answers) => answers.questConfirm === true,
+		},
+		{
+			type: 'input',
+			message: 'What is your github user name?',
+			name: 'questGit',
+			when: (answers) => answers.questConfirm === true,
 		},
 	]);
 };
