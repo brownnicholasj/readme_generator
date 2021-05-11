@@ -1,34 +1,29 @@
-# Readmetest2
+# test title
 
   ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
 
   ## Description
-  * this
-  * does
-  * things
+  * ioajsdf
+  * oiajdsf
+  * oija
 
   ## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-  * [Installation](#installation)
-
-  * [Usage](#usage)
-
-  * [License](#license)
-
-  * [Contributing](#contributing)
-
-  * [Tests](#tests)
-
-  * [Questions](#questions)
-
-
+  
   ## Installation
+To install necessary dependencies, run the following command:
 
-  To install necessary dependencies, run the following command:
+~~~
+npm i
+~~~
 
-  '''
-  npm i
-  '''
+The following dependencies will be installed: inquirer
 
 
   ## Usage

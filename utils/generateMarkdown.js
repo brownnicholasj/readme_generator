@@ -18,11 +18,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license, toc) {
 	if (license !== undefined) {
-		if (toc === false) {
-			return `## License\nThis project is licensed under the ${license} license.`;
-		} else {
-			return `* [License](#license)`;
-		}
+		return `## License\nThis project is licensed under the ${license} license.`;
 	} else {
 		return ``;
 	}
@@ -34,6 +30,54 @@ const descSection = (boolean, desc1, desc2, desc3) => {
   * ${desc1}
   * ${desc2}
   * ${desc3}`
+		: ``;
+};
+
+const tocSection = (
+	boolean,
+	install,
+	usage,
+	license,
+	contribute,
+	test,
+	question
+) => {
+	let toc = '';
+	if (boolean === true) {
+		toc = '## Table of Contents\n';
+	}
+	if (install === true) {
+		toc += '* [Installation](#installation)\n';
+	}
+	if (usage === true) {
+		toc += '* [Usage](#usage)\n';
+	}
+	if (license !== undefined) {
+		toc += '* [License](#license)\n';
+	}
+	if (contribute === true) {
+		toc += '* [Contributing](#contributing)\n';
+	}
+	if (test === true) {
+		toc += '* [Tests](#tests)\n';
+	}
+	if (question === true) {
+		toc += '* [Questions](#questions)\n';
+	}
+	return toc;
+};
+
+const installSection = (boolean) => {
+	return boolean
+		? `## Installation
+To install necessary dependencies, run the following command:
+
+~~~
+npm i
+~~~
+
+The following dependencies will be installed: 
+* ${Object.keys(licensepkg.dependencies)}`
 		: ``;
 };
 
@@ -52,28 +96,17 @@ function generateMarkdown(answers) {
 		answers.desc3
 	)}
 
-  ## Table of Contents
-
-  * [Installation](#installation)
-
-  * [Usage](#usage)
-
-  ${renderLicenseSection(licensepkg.license, true)}
-
-  * [Contributing](#contributing)
-
-  * [Tests](#tests)
-
-  * [Questions](#questions)
-
-
-  ## Installation
-
-  To install necessary dependencies, run the following command:
-
-  '''
-  npm i
-  '''
+  ${tocSection(
+		answers.tocConfirm,
+		answers.installConfirm,
+		answers.usageConfirm,
+		licensepkg.license,
+		answers.contConfirm,
+		answers.testConfirm,
+		answers.questConfirm
+	)}
+  
+  ${installSection(answers.installConfirm)}
 
 
   ## Usage
