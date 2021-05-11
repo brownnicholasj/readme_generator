@@ -1,16 +1,16 @@
-# test2
+# README Markdown Generator
 
 
-  ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue)
 
 
-  ## Description
-  * a
-  * v
-  * c
+## Description
+* Generating readme
+* computers and stuff
+* my  head has messed up ideas
 
 
-  ## Table of Contents
+## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
@@ -20,7 +20,8 @@
 
   
 
-  ## Installation
+## Installation
+
 To install necessary dependencies, run the following command:
 
 ~~~
@@ -31,26 +32,26 @@ The following dependencies will be installed:
 * inquirer
 
 
-  ## Usage
-a
+## Usage
+start a readme
 
 
-  ## License
+## License
 This project is licensed under the MIT license.
 
 
-  ## Contributing
-A thanks to the following contributors to this project: adfa
+## Contributing
+A thanks to the following contributors to this project: Nic Brown
 
 
-  ## Test
-* 11111
-* 222222
-* 333333
-* 444444
-* 555555
+## Test
+
+
+To run tests, run the following command:
+~~~
+npm test
+~~~
   
 
-  ## Questions
-If you have any questions about the repo, open an issue or contact me directly at mail.You can find more of my work at [git](https://github.com/git/).
-  
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at gmail.com.You can find more of my work at [github](https://github.com/github/).
