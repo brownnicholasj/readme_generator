@@ -1,13 +1,13 @@
-# README Markdown Generator
+# test3
 
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue)
+![License: Apache](https://img.shields.io/badge/License-Apache-blue)
 
 
 ## Description
-* Generating readme
-* computers and stuff
-* my  head has messed up ideas
+* 
+* t
+* 
 
 
 ## Table of Contents
@@ -33,15 +33,15 @@ The following dependencies will be installed:
 
 
 ## Usage
-start a readme
+
 
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the Apache license.
 
 
 ## Contributing
-A thanks to the following contributors to this project: Nic Brown
+A thanks to the following contributors to this project: 
 
 
 ## Test
@@ -54,4 +54,4 @@ npm test
   
 
 ## Questions
-If you have any questions about the repo, open an issue or contact me directly at gmail.com.You can find more of my work at [github](https://github.com/github/).
+If you have any questions about the repo, open an issue or contact me directly at .You can find more of my work at [](https://github.com//).

@@ -16,7 +16,7 @@ return license
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license, toc) {
+function renderLicenseSection(license) {
 if (license !== undefined) {
 return `## License\nThis project is licensed under the ${license} license.`;
 } else {
@@ -145,8 +145,8 @@ function generateMarkdown(answers) {
 return `# ${answers.title}
 
 
-${renderLicenseBadge(licensepkg.license)}${renderLicenseLink(
-		licensepkg.license
+${renderLicenseBadge(answers.licenseChoice)}${renderLicenseLink(
+		answers.licenseChoice
 	)}
 
 
@@ -175,7 +175,7 @@ ${installSection(answers.installConfirm)}
 ${usageSection(answers.usageConfirm, answers.usageText)}
 
 
-${renderLicenseSection(licensepkg.license, false)}
+${renderLicenseSection(answers.licenseChoice, false)}
 
 
 ${contributeSection(answers.contConfirm, answers.contList)}

@@ -54,6 +54,30 @@ const readmeQuestions = () => {
 		{
 			type: 'confirm',
 			message:
+				'Do you want a "License" section to notify users of the appropriate licensing?',
+			name: 'licenseConfirm',
+			default: true,
+		},
+		{
+			type: 'list',
+			message: 'What type of license would you like to list?',
+			choices: [
+				'MIT',
+				'GPLv2',
+				'Apache',
+				'GPLv3',
+				'BSD 3-clause',
+				'Unlicense',
+				'BSD 2-clause',
+				'LGPLv3',
+				'AGPLv3',
+			],
+			name: 'licenseChoice',
+			when: (answers) => answers.licenseConfirm === true,
+		},
+		{
+			type: 'confirm',
+			message:
 				'Do you want an "Usage" section to describe practical way to utilize your app?',
 			name: 'usageConfirm',
 			default: true,
